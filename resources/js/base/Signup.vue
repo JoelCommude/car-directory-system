@@ -114,19 +114,19 @@ export default {
         mSubmit(){
             axios.post('api/user',
             {
-                UserName:this.userName,
-                Password:this.password,
-                FirstName:this.firstName,
-                LastName:this.lastName,
-                Sex:this.sexId,
-                Role:this.roleId,
-                Company:this.companyId,
-                Car:this.carId,
-                PlateNumber:this.plateNumber,
-                EngineNumber:this.engineNumber,
-                BodyType:this.bodyId,
-                FuelType:this.fuelTypeId,
-                User: this.user
+                username:this.userName,
+                password:this.password,
+                first_name:this.firstName,
+                last_name:this.lastName,
+                sex:this.sexId,
+                role_id:this.roleId,
+                company_id:this.companyId,
+                car_id:this.carId,
+                plate_number:this.plateNumber,
+                engine_number:this.engineNumber,
+                body_id:this.bodyId,
+                fuel_id:this.fuelTypeId,
+                updated_by: this.user
             }).then(res =>{
                 if(res.data == 'Success'){
                     this.mSuccessMessage()

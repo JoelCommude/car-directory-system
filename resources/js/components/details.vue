@@ -101,10 +101,10 @@ export default {
 
         mUpdate(){
             axios.put('api/user/{user}',{
-                UserID:this.ownerDetails.user_id,
-                FirstName:this.firstName,
-                LastName:this.lastName,
-                Delete:this.checkboxDelete
+                id:this.ownerDetails.user_id,
+                first_name:this.firstName,
+                last_name:this.lastName,
+                delete_at:this.checkboxDelete
             })
             .then(res =>{
                 if(res.data == 'Success'){

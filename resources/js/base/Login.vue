@@ -68,9 +68,10 @@ export default {
                 this.mErrorMessage("Input User Name or Password!")
             }else{
                 axios.post('api/login',{
-                   UserName:this.userName,
-                   Password:this.password
+                   username:this.userName,
+                   password:this.password
                 }).then(res =>{
+                    console.log(res.data)
                     if(res.data.data != undefined){
                         this.$store.commit("userLog",{value:res.data.data[0]['username']})
                         this.$store.commit("data",{value:res.data.data})

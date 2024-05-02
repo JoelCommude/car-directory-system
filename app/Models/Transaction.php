@@ -18,6 +18,7 @@ class Transaction extends Model
         'engine_number',
         'fuel_id',
         'body_id',
+        'updated_by',
     ];
 
     public function company(){

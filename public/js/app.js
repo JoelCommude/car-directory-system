@@ -44,9 +44,10 @@ __webpack_require__.r(__webpack_exports__);
         this.mErrorMessage("Input User Name or Password!");
       } else {
         axios.post('api/login', {
-          UserName: this.userName,
-          Password: this.password
+          username: this.userName,
+          password: this.password
         }).then(function (res) {
+          console.log(res.data);
           if (res.data.data != undefined) {
             _this.$store.commit("userLog", {
               value: res.data.data[0]['username']
@@ -229,19 +230,19 @@ __webpack_require__.r(__webpack_exports__);
     mSubmit: function mSubmit() {
       var _this = this;
       axios.post('api/user', {
-        UserName: this.userName,
-        Password: this.password,
-        FirstName: this.firstName,
-        LastName: this.lastName,
-        Sex: this.sexId,
-        Role: this.roleId,
-        Company: this.companyId,
-        Car: this.carId,
-        PlateNumber: this.plateNumber,
-        EngineNumber: this.engineNumber,
-        BodyType: this.bodyId,
-        FuelType: this.fuelTypeId,
-        User: this.user
+        username: this.userName,
+        password: this.password,
+        first_name: this.firstName,
+        last_name: this.lastName,
+        sex: this.sexId,
+        role_id: this.roleId,
+        company_id: this.companyId,
+        car_id: this.carId,
+        plate_number: this.plateNumber,
+        engine_number: this.engineNumber,
+        body_id: this.bodyId,
+        fuel_id: this.fuelTypeId,
+        updated_by: this.user
       }).then(function (res) {
         if (res.data == 'Success') {
           _this.mSuccessMessage();
@@ -592,10 +593,10 @@ __webpack_require__.r(__webpack_exports__);
     mUpdate: function mUpdate() {
       var _this = this;
       axios.put('api/user/{user}', {
-        UserID: this.ownerDetails.user_id,
-        FirstName: this.firstName,
-        LastName: this.lastName,
-        Delete: this.checkboxDelete
+        id: this.ownerDetails.user_id,
+        first_name: this.firstName,
+        last_name: this.lastName,
+        delete_at: this.checkboxDelete
       }).then(function (res) {
         if (res.data == 'Success') {
           _this.mCloseDialog();
@@ -1326,7 +1327,7 @@ var render = function render() {
     slot: "prepend"
   }, [_vm._v("\n                        *Input New Password:\n                    ")])]) : _vm._e()]], 2), _vm._v(" "), _c("v-card-actions", [[_c("v-spacer"), _vm._v(" "), _c("v-btn", {
     attrs: {
-      disabled: this.newPassword.length <= 0 || _vm.userExists == false,
+      disabled: this.newPassword.length <= 0 && _vm.userExists == false,
       color: "#B0BEC5"
     },
     on: {

@@ -33,7 +33,7 @@
             <v-card-actions>
             <template >
                 <v-spacer></v-spacer>
-                <v-btn :disabled="this.newPassword.length <= 0 || userExists == false" @click="mUpdate()" color="#B0BEC5"><b>Update</b> </v-btn>
+                <v-btn :disabled="this.newPassword.length <= 0 && userExists == false" @click="mUpdate()" color="#B0BEC5"><b>Update</b> </v-btn>
             </template>
             </v-card-actions>
         </v-card>
